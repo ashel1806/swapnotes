@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Poppins:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css">
+    <title>SwapNotes</title>
+</head>
+<body>
+    <div class="global-parent">
+        <header>
+            <div class="add--container">
+                <div class="add-notes">
+                    <h1 class="swap-title"><span class="part1">Swap</span><span class="part2">Notes</span></h1>
+                    <div class="form-container">
+                        <div class="adding-note">
+                            <p>Agregar Nota</p>
+                            <div class="add-icon">
+                                <i class="fas fa-plus-circle" id="add-icon"></i>
+                            </div>
+                        </div>
+                        <div class="form-wrapper">
+                            <form id="form-container">
+                                <label for="note">Titulo</label>
+                                <input type="text" name="note" id="note" required>
+                                <label for="note-content">Contenido</label>
+                                <textarea name="noteContent" id="note-content" required></textarea>
+                                <label for="colorPicker">Color</label>
+                                <input name="colorPicker" id="color-picker"/>
+                                <input type="submit" value="Añadir">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="notes-container">
+            <h2 class="notes-title">Aún no hay notas <i class="far fa-frown"></i></h2>
+            <div class="notes" id="notes-grid">
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/396a7376e5.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="app.js"></script>
+    <script src="color-picker.js"></script>
+</body>
+</html>

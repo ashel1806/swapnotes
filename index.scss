@@ -1,0 +1,260 @@
+@import 'variables';
+@import 'mixins';
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: $primary-font;
+}
+
+body{
+    @include tablet {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba($color: #000, $alpha: 0.3);
+        width: 100vw;
+        height: 100vh;
+        padding: 1em;
+    }
+
+    .global-parent{
+        @include tablet {
+            display: grid;
+            grid-template-columns: 360px auto;
+            background-color: rgba($color: #000, $alpha: 0.4);
+            width: 100%;
+            max-width: 1400px;
+            height: 100%;
+            overflow: auto;
+            @include border-radius(1.5em)
+        }
+    }
+}
+
+
+.add--container{
+    padding: 1em;
+    position: relative;
+    @include tablet {
+        width: 360px;
+        height: calc(100vh - 2em);
+        position: fixed;
+        padding: 3em 1em;
+        background-color: white;
+        @include border-radius(1.5em)
+    }
+
+    &::after{
+        content: "";
+        width: 90%;
+        height: 1px;
+        position: absolute;
+        background-color: $primary-color;
+        bottom: 0;
+        @include tablet {
+            display: none;
+        }
+    }
+
+    .swap-title{
+        color: $primary-color;
+        text-align: center;
+        font-size: 2.5rem;
+        padding: 0 .5em .5em;
+        position: relative;
+
+        .part1{
+            color: $primary-color;
+            border-top: 3px solid $primary-color;
+        }
+        .part2{
+            color: $third-color;
+            border-bottom: 3px solid $third-color;
+        }
+
+    }
+
+    .form-container{
+        background: $four-color;
+        display: flex;
+        flex-direction: column;
+        @include border-radius(.7em);
+
+        .adding-note{
+            background-color: $primary-color;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em .5em;
+            @include border-radius(.7em);
+
+            p{
+                display: inline;
+                color: $four-color;
+            }
+
+            .add-icon{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 25px;
+                height: 25px;
+                font-size: 25px;
+                color: $fift-color;
+                cursor: pointer;
+            }   
+            
+            .fas {
+                transition: all .7s ease-out;
+
+                &.pressed{
+                    transform: rotate(135deg);
+                }
+
+            }
+        }
+
+        form{
+            padding: .5em .5em .7em .5em;
+            display: none;
+                
+            label{
+                display: block;
+                color: $primary-color;
+                font-weight: bold;
+                letter-spacing: 1px;
+                font-size: 1.2rem;
+            }
+                
+            #note{
+                width: 100%;
+                font-size: 1.2rem;
+                padding: .5em;
+                margin: 0 0 1em 0;
+                border: none;
+                outline: none;
+                @include border-radius(.5em);
+            }
+                
+            textarea{
+                width: 100%;
+                min-height: 90px;
+                max-height: 150px;
+                resize: none;
+                overflow: auto;
+                font-family: $primary-font;
+                font-size: 1.2rem;
+                padding: .5em;
+                margin: 0 0 .5em 0;
+                border: none;
+                outline: none;
+                @include border-radius(.5em);
+            }
+
+            .sp-container.sp-light.sp-flat{
+                display: block;
+                margin: 1em 0;
+            
+                .sp-palette.sp-thumb.sp-cf{
+                    &::before{
+                        display: inline;
+                    }
+                }
+                
+                .sp-thumb-el.sp-thumb-light{
+                    width: 50px;
+                    height: 50px;
+                }
+
+                .sp-palette .sp-thumb-light.sp-thumb-active .sp-thumb-inner{
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='30' height='30'%3E%3Cpath d='M9 16.172l10.594-10.594 1.406 1.406-12 12-5.578-5.578 1.406-1.406z' fill='%23000'%3E%3C/path%3E%3C/svg%3E");
+                }
+                
+            }
+
+
+            [type="submit"]{
+                border: none;
+                color: $fift-color;
+                font-weight: bold;
+                padding: .7em 1.2em;
+                background-color: $primary-color;
+                cursor: pointer;
+                @include border-radius(.5em);
+            }
+
+            &.open{
+                display: block;
+            }
+        }
+    }
+}
+
+.notes-container{
+    padding: 1em;
+
+    .notes-title{
+        color: rgba($primary-color, $alpha: 0.5);
+        margin-bottom: .5em;
+        text-align: center;
+
+        @include tablet{
+            font-size: 2rem;
+        }
+
+        @include desktop{
+            font-size: 2.5rem;
+        }
+
+    }
+
+    .notes{
+        width: 100%;
+
+        @include desktop {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-column-gap: 1em;
+        }
+
+        @include large {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .note{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 1em 1em;
+        margin-bottom: 1.5em;
+        @include border-radius(.7em);
+
+        .note-title{
+            text-align: center;
+            color: $fift-color;
+            padding: .2em 0;
+            background-color: $primary-color;
+            @include border-radii(0, 0, .5em, .5em);
+        }
+
+        .note-content{
+            padding: .7em 0;
+        }
+
+        .iconos{
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: space-evenly;
+
+            i{
+                cursor: pointer;
+            }
+        }
+    }
+}

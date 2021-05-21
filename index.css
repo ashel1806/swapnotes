@@ -130,7 +130,7 @@ html {
         -webkit-border-radius: 0.5em;
         -moz-border-radius: 0.5em; }
       .add--container .form-container form .sp-container.sp-light.sp-flat {
-        display: block;
+        display: inline;
         margin: 1em 0; }
         .add--container .form-container form .sp-container.sp-light.sp-flat .sp-palette.sp-thumb.sp-cf::before {
           display: inline; }
